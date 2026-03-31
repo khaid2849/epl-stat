@@ -1,0 +1,607 @@
+{
+	"info": {
+		"_postman_id": "52972999-d443-4e9c-8a4c-1689bdf9e39a",
+		"name": "Fantasy Premier League API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20480066"
+	},
+	"item": [
+		{
+			"name": "Boostrap Static",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://fantasy.premierleague.com/api/bootstrap-static/",
+					"protocol": "https",
+					"host": [
+						"fantasy",
+						"premierleague",
+						"com"
+					],
+					"path": [
+						"api",
+						"bootstrap-static",
+						""
+					]
+				},
+				"description": "**Description**\n\nA summary of the previous game weeks, fpl phases, teams and players.\n\nFPL's game settings are also found here.\n\nReturns a list of `events` with each unique event representing a summary of a Gameweek.\n\nReturns the current `game_settings`.\n\nReturns a list of `phases` and their details.\n\nReturns a list of `teams` and their details.\n\nReturns the `total_players` (FPL managers)\n\nReturns a list of all `elements` (players).\n\nReturns a list of `element_stats`\n\nReturns a list of `element_types`"
+			},
+			"response": []
+		},
+		{
+			"name": "Element Gameweek Live",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://fantasy.premierleague.com/api/event/{{gw_id}}/live/",
+					"protocol": "https",
+					"host": [
+						"fantasy",
+						"premierleague",
+						"com"
+					],
+					"path": [
+						"api",
+						"event",
+						"{{gw_id}}",
+						"live",
+						""
+					]
+				},
+				"description": "**Description**\n\nReturns a list of `elements` with each element object representing a unqiue player's live Gameweek performance."
+			},
+			"response": []
+		},
+		{
+			"name": "Manager's Team",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "cookie",
+						"value": "{{cookie}}",
+						"type": "text"
+					},
+					{
+						"key": "x-api-authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6ImRlZmF1bHQifQ.eyJjbGllbnRfaWQiOiJiZmNiYWY2OS1hYWRlLTRjMWItOGYwMC1jMWNiOGExOTMwMzAiLCJpc3MiOiJodHRwczovL2FjY291bnQucHJlbWllcmxlYWd1ZS5jb20vYXMiLCJqdGkiOiJmOTZiNDBiMi0xNWViLTRlNGItYjM0MC0yZmQ3YTFjYmIwOTgiLCJpYXQiOjE3NTU3MDUwMDIsImV4cCI6MTc1NTcwODYwMiwiYXVkIjpbImh0dHBzOi8vYXBpLnBpbmdvbmUuZXUiXSwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsInN1YiI6IjVhYmJkMDBlLWQyMjMtNGU4MS04OGJhLWZhMTU4NDdmNTVhOCIsInNpZCI6IjgzYTgxMjMzLTY0OGQtNGM4OS1iMzZhLWI4NmZkNmQ5YTQyMyIsImF1dGhfdGltZSI6MTc1NTU3MzY2NSwiYWNyIjoiMjYyY2U0YjAxZDE5ZGQ5ZDM4NWQyNmJkZGI0Mjk3YjYiLCJhdXRoZW50aWNhdG9yIjoicHdkIiwiZW52IjoiNjgzNDBkZTEtZGZiOS00MTJlLTkzN2MtMjAxNzI5ODZkMTI5Iiwib3JnIjoiM2E2ODUwMzItODMyNi00OTY5LWE3OGItY2MyOTc3NWIxM2Q2IiwicDEucmlkIjoiNTQ1N2IwYmItMTFlYS00MWJjLWFmMTYtNTliMzc1NDY0NTNhIn0.Op3QPgTK6aw4g7wDk6F3XTOWdFyuDGZZCMmtquYv-OK4hmvq1ITFdFYjFxc2M8MiGClh8HD8CKCDN9-BQ-WKwkuuCtKCRl6gv8dBIUWs26ln1Bv5QNKT4ItkbfDBW9pG5ONsSIsbliP5YKVINRj8M-ZRBIXmmdwDeHUzH71HFUW_ZcXxG5a9GaBcCU0VetBG7HqHcmejUc99n_DbrhFTBn6QcxuyA-xCnFeksOZUv8L-kaxiJM-Xq68lar8HTbVhPQOhvgXH5gsBewpaw4yNRhPffLhv1AeYqrZCi9FCNZv0h_DeA_l80xUIghaRLuPRbwPFS0XwU_leUb2fFFtuAw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://fantasy.premierleague.com/api/my-team/{{team_id}}/",
+					"protocol": "https",
+					"host": [
+						"fantasy",
+						"premierleague",
+						"com"
+					],
+					"path": [
+						"api",
+						"my-team",
+						"{{team_id}}",
+						""
+					]
+				},
+				"description": "**Description**\n\nReturns an entry's current team, transfer status and chips played.\n\n**Request Headers**\n\n| **Header** | **Description** |\n| --- | --- |\n| cookie | Authentication cookie |"
+			},
+			"response": []
+		},
+		{
+			"name": "Manager's Team on a given Gameweek",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "cookie",
+						"value": "{{cookie}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://fantasy.premierleague.com/api/my-team/{{team_id}}/",
+					"protocol": "https",
+					"host": [
+						"fantasy",
+						"premierleague",
+						"com"
+					],
+					"path": [
+						"api",
+						"my-team",
+						"{{team_id}}",
+						""
+					]
+				},
+				"description": "**Description**\n\nReturns an entry's current team, transfer status and chips played.\n\n**Request Headers**\n\n| **Header** | **Description** |\n| --- | --- |\n| cookie | Authentication cookie |"
+			},
+			"response": []
+		},
+		{
+			"name": "Manager Data",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "cookie",
+						"value": "{{cookie}}",
+						"type": "text"
+					},
+					{
+						"key": "x-api-authorization",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://fantasy.premierleague.com/api/me/",
+					"protocol": "https",
+					"host": [
+						"fantasy",
+						"premierleague",
+						"com"
+					],
+					"path": [
+						"api",
+						"me",
+						""
+					]
+				},
+				"description": "**Description**\n\nReturns an entry's personal details, entry ID and FPL ID.\n\n**Request Headers**\n\n| **Header** | **Description** |\n| --- | --- |\n| cookie | Authentication cookie |"
+			},
+			"response": []
+		},
+		{
+			"name": "Entry Summary",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://fantasy.premierleague.com/api/entry/{{team_id}}/",
+					"protocol": "https",
+					"host": [
+						"fantasy",
+						"premierleague",
+						"com"
+					],
+					"path": [
+						"api",
+						"entry",
+						"{{team_id}}",
+						""
+					]
+				},
+				"description": "**Description**\n\nReturns an entry's season summary, league and cup standings, budget and transfers made."
+			},
+			"response": []
+		},
+		{
+			"name": "Entry History",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://fantasy.premierleague.com/api/entry/{{team_id}}/history/",
+					"protocol": "https",
+					"host": [
+						"fantasy",
+						"premierleague",
+						"com"
+					],
+					"path": [
+						"api",
+						"entry",
+						"{{team_id}}",
+						"history",
+						""
+					]
+				},
+				"description": "**Description**\n\nReturns an entry's season summary, league and cup standings, budget and transfers made."
+			},
+			"response": []
+		},
+		{
+			"name": "Entry Transfers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://fantasy.premierleague.com/api/entry/{{team_id}}/transfers/",
+					"protocol": "https",
+					"host": [
+						"fantasy",
+						"premierleague",
+						"com"
+					],
+					"path": [
+						"api",
+						"entry",
+						"{{team_id}}",
+						"transfers",
+						""
+					]
+				},
+				"description": "**Description**\n\nReturns an entry's transfer transactions."
+			},
+			"response": []
+		},
+		{
+			"name": "Gameweek Picks",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://fantasy.premierleague.com/api/entry/{{team_id}}/event/{{gw_id}}/picks/",
+					"protocol": "https",
+					"host": [
+						"fantasy",
+						"premierleague",
+						"com"
+					],
+					"path": [
+						"api",
+						"entry",
+						"{{team_id}}",
+						"event",
+						"{{gw_id}}",
+						"picks",
+						""
+					]
+				},
+				"description": "**Description**\n\nReturns an entry's Gameweek team selection."
+			},
+			"response": []
+		},
+		{
+			"name": "Gameweek Fixtures",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://fantasy.premierleague.com/api/fixtures/?event={{gw_id}}",
+					"protocol": "https",
+					"host": [
+						"fantasy",
+						"premierleague",
+						"com"
+					],
+					"path": [
+						"api",
+						"fixtures",
+						""
+					],
+					"query": [
+						{
+							"key": "event",
+							"value": "{{gw_id}}"
+						}
+					]
+				},
+				"description": "**Description**\n\nReturns a list of Gameweek fixtures with each object returning all details for a fixture, including scores and stats.\n\nReturns an array of fixture objects. If the fixture is a future fixture, only a summary is returned such as teams, kick off time and difficulty for each team. For the past fixtures, statistics for the fixture are also returned.\n\nUse query parameter \"event={{gw_id}}\" to get fixtures from a specific gameweek."
+			},
+			"response": []
+		},
+		{
+			"name": "Element Summary",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://fantasy.premierleague.com/api/element-summary/{{player_id}}/",
+					"protocol": "https",
+					"host": [
+						"fantasy",
+						"premierleague",
+						"com"
+					],
+					"path": [
+						"api",
+						"element-summary",
+						"{{player_id}}",
+						""
+					]
+				},
+				"description": "**Description**\n\nReturns an element's upcoming fixtures, a history of completed Gameweeks, and a summary of metrics from previous seasons."
+			},
+			"response": []
+		},
+		{
+			"name": "League Standings",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://fantasy.premierleague.com/api/leagues-classic/{{league_id}}/standings/?page_standings={{page_id}}&phase={{phase}}",
+					"protocol": "https",
+					"host": [
+						"fantasy",
+						"premierleague",
+						"com"
+					],
+					"path": [
+						"api",
+						"leagues-classic",
+						"{{league_id}}",
+						"standings",
+						""
+					],
+					"query": [
+						{
+							"key": "page_new_entries",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "page_standings",
+							"value": "{{page_id}}"
+						},
+						{
+							"key": "phase",
+							"value": "{{phase}}"
+						}
+					]
+				},
+				"description": "**Description**\n\nReturns a league's live standings.\n\nIf a league has more than 50 entries, the `page_standings` query parameter must be used.\n\nThe \"Overall\" league ID is 314.\n\n`phase` represents a period e.g. `phase=1` is GW1 to GW38, `phase=2` is August"
+			},
+			"response": []
+		},
+		{
+			"name": "Head-to-Head League Standings",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://fantasy.premierleague.com/api/leagues-classic/{{league_id}}/standings/?page_standings={{page_id}}&phase={{phase}}",
+					"protocol": "https",
+					"host": [
+						"fantasy",
+						"premierleague",
+						"com"
+					],
+					"path": [
+						"api",
+						"leagues-classic",
+						"{{league_id}}",
+						"standings",
+						""
+					],
+					"query": [
+						{
+							"key": "page_new_entries",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "page_standings",
+							"value": "{{page_id}}"
+						},
+						{
+							"key": "phase",
+							"value": "{{phase}}"
+						}
+					]
+				},
+				"description": "**Description**\n\nReturns a league's live standings.\n\nIf a league has more than 50 entries, the `page_standings` query parameter must be used.\n\nThe \"Overall\" league ID is 314.\n\n`phase` represents a period e.g. `phase=1` is GW1 to GW38, `phase=2` is August"
+			},
+			"response": []
+		},
+		{
+			"name": "Manager's Transfers in current Gameweek",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Event Status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://fantasy.premierleague.com/api/event-status/",
+					"protocol": "https",
+					"host": [
+						"fantasy",
+						"premierleague",
+						"com"
+					],
+					"path": [
+						"api",
+						"event-status",
+						""
+					]
+				},
+				"description": "Returns the status of adding bonus points and league updates for the current gameweek."
+			},
+			"response": []
+		},
+		{
+			"name": "Dream Team",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://fantasy.premierleague.com/api/dream-team/{{event_id}}/",
+					"protocol": "https",
+					"host": [
+						"fantasy",
+						"premierleague",
+						"com"
+					],
+					"path": [
+						"api",
+						"dream-team",
+						"{{event_id}}",
+						""
+					]
+				},
+				"description": "Returns the dream team of the given gameweek."
+			},
+			"response": []
+		},
+		{
+			"name": "Set Piece Taker Notes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://fantasy.premierleague.com/api/team/set-piece-notes/",
+					"protocol": "https",
+					"host": [
+						"fantasy",
+						"premierleague",
+						"com"
+					],
+					"path": [
+						"api",
+						"team",
+						"set-piece-notes",
+						""
+					]
+				},
+				"description": "Returns notes on the set piece takers for each team."
+			},
+			"response": []
+		},
+		{
+			"name": "League Cup Status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://fantasy.premierleague.com/api/league/{{league_id}}/cup-status/",
+					"protocol": "https",
+					"host": [
+						"fantasy",
+						"premierleague",
+						"com"
+					],
+					"path": [
+						"api",
+						"league",
+						"{{league_id}}",
+						"cup-status",
+						""
+					]
+				},
+				"description": "Returns data on the cup status for a given league."
+			},
+			"response": []
+		},
+		{
+			"name": "Most Valuable Teams",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://fantasy.premierleague.com/api/stats/most-valuable-teams/",
+					"protocol": "https",
+					"host": [
+						"fantasy",
+						"premierleague",
+						"com"
+					],
+					"path": [
+						"api",
+						"stats",
+						"most-valuable-teams",
+						""
+					]
+				},
+				"description": "Returns top 5 most valuable teams."
+			},
+			"response": []
+		},
+		{
+			"name": "Best Leagues",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://fantasy.premierleague.com/api/stats/most-valuable-teams/",
+					"protocol": "https",
+					"host": [
+						"fantasy",
+						"premierleague",
+						"com"
+					],
+					"path": [
+						"api",
+						"stats",
+						"most-valuable-teams",
+						""
+					]
+				},
+				"description": "Returns best leagues, by average score of top 5 players in said league."
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "cookie",
+			"value": "COOKIE",
+			"type": "string"
+		},
+		{
+			"key": "team_id",
+			"value": "1",
+			"type": "string"
+		},
+		{
+			"key": "gw_id",
+			"value": "13",
+			"type": "string"
+		},
+		{
+			"key": "player_id",
+			"value": "318",
+			"type": "string"
+		},
+		{
+			"key": "league_id",
+			"value": "314",
+			"type": "string"
+		},
+		{
+			"key": "page_id",
+			"value": "1",
+			"type": "string"
+		},
+		{
+			"key": "phase",
+			"value": "1",
+			"type": "string"
+		}
+	]
+}
