@@ -8,9 +8,7 @@ const api = axios.create({ baseURL: '/api', timeout: 15000 })
 
 export const getTeams = () => api.get<Team[]>('/teams').then(r => r.data)
 export const getTeam = (s: string) => api.get<Team>(`/teams/${encodeURIComponent(s)}`).then(r => r.data)
-export const getStandings = (gw?: number) =>
-  api.get<StandingsResponse>('/standings', { params: gw ? { gw } : {} }).then(r => r.data)
-export const getStandingsHistory = () => api.get<number[]>('/standings/history').then(r => r.data)
+export const getStandings = () => api.get<StandingsResponse>('/standings').then(r => r.data)
 export const getPlayers = (params: Record<string, string | number | undefined>) =>
   api.get<PlayersResponse>('/players', { params }).then(r => r.data)
 export const getPlayer = (id: number) => api.get<Player>(`/players/${id}`).then(r => r.data)

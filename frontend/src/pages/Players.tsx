@@ -41,20 +41,20 @@ export default function Players() {
       {error && <div className="text-red-400 text-center py-8">Failed to load players. Is the backend running?</div>}
       {data && (
         <>
-          <div className="text-sm text-gray-400 mb-3">{data.meta.total} players</div>
+          <div className="text-sm text-[#555] mb-3">{data.meta.total} players</div>
           <PlayerTable players={data.players} />
           {data.meta.pages > 1 && (
             <div className="flex items-center justify-center gap-3 mt-4">
               <button
                 disabled={page <= 1}
                 onClick={() => setPage(p => p - 1)}
-                className="px-4 py-2 bg-navy-light border border-navy-border text-white rounded disabled:opacity-40 hover:bg-navy transition-colors text-sm"
+                className="px-4 py-2 bg-[#1a1a1a] border border-[#2a2a2a] text-white rounded disabled:opacity-40 hover:bg-[#242424] transition-colors text-sm"
               >← Prev</button>
-              <span className="text-gray-400 text-sm">Page {page} of {data.meta.pages}</span>
+              <span className="text-[#666] text-sm">Page {page} of {data.meta.pages}</span>
               <button
                 disabled={page >= data.meta.pages}
                 onClick={() => setPage(p => p + 1)}
-                className="px-4 py-2 bg-navy-light border border-navy-border text-white rounded disabled:opacity-40 hover:bg-navy transition-colors text-sm"
+                className="px-4 py-2 bg-[#1a1a1a] border border-[#2a2a2a] text-white rounded disabled:opacity-40 hover:bg-[#242424] transition-colors text-sm"
               >Next →</button>
             </div>
           )}

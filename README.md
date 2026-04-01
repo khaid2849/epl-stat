@@ -78,6 +78,25 @@ epl-stat/
 - Python 3.12+
 - Node.js 20+
 - pip
+- A [Kaggle account](https://www.kaggle.com) (free) for automatic dataset downloads
+
+### 0. Kaggle credentials setup
+
+The backend automatically downloads the latest datasets from Kaggle on first start. To enable this:
+
+1. Go to [kaggle.com](https://www.kaggle.com) → your profile → **Settings** → **API** → **Create New Token**
+2. This downloads a `kaggle.json` file. Place it at:
+   - **Linux/macOS:** `~/.kaggle/kaggle.json`
+   - **Windows:** `C:\Users\<your-username>\.kaggle\kaggle.json`
+3. Set file permissions (Linux/macOS only): `chmod 600 ~/.kaggle/kaggle.json`
+
+Alternatively, set environment variables:
+```bash
+export KAGGLE_USERNAME=your_username
+export KAGGLE_KEY=your_api_key
+```
+
+> If credentials are not configured, the backend will skip the download and use whatever CSV files are already present locally.
 
 ### 1. Backend setup
 
@@ -88,9 +107,22 @@ uvicorn main:app --reload --port 8000
 ```
 
 On first start the backend automatically:
-- Seeds the SQLite database from the CSV files
+- **Downloads** the latest EPL tables and FPL player datasets from Kaggle
+- Seeds the SQLite database from the downloaded CSV files
 - Fetches current standings, fixtures, and team data from the FPL API
 - Loads ML models if they exist in `ml/saved_models/`
+
+**Manual dataset management:**
+```bash
+# Download datasets only (without seeding DB)
+python -m services.data_loader --download-only
+
+# Force re-download even if files exist (e.g. mid-season refresh)
+python -m services.data_loader --force-download
+
+# Seed DB from existing local files without downloading
+python -m services.data_loader --no-download
+```
 
 ### 2. Frontend setup
 
