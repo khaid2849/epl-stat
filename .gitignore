@@ -1,0 +1,61 @@
+# ── Python ──────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+.venv/
+venv/
+env/
+ENV/
+
+# ── Backend specific ─────────────────────────────────────
+backend/epl_stat.db
+backend/data/raw/element_summaries/
+backend/data/processed/
+backend/ml/saved_models/*.joblib
+backend/ml/saved_models/*.pkl
+
+# Keep directory structure
+!backend/data/raw/element_summaries/.gitkeep
+!backend/data/processed/.gitkeep
+!backend/ml/saved_models/.gitkeep
+
+# ── Environment & secrets ────────────────────────────────
+.env
+.env.*
+!.env.example
+*.env
+kaggle.json
+
+# ── Node / Frontend ──────────────────────────────────────
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# ── IDE & OS ─────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Logs ─────────────────────────────────────────────────
+*.log
+logs/
+npm-debug.log*
+
+# ── Misc ─────────────────────────────────────────────────
+*.bak
+*.tmp
+.cache/
+
+*.claude*

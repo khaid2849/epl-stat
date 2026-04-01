@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./epl_tables_dataset:/app/epl_tables_dataset:ro
+      - ./fpl_dataset:/app/fpl_dataset:ro
+      - ./backend/epl_stat.db:/app/epl_stat.db
+    environment:
+      - DB_PATH=/app/epl_stat.db
+      - EPL_TABLES_DIR=/app/epl_tables_dataset
+      - FPL_DATASET_PATH=/app/fpl_dataset/players.csv
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
