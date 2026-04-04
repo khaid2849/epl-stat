@@ -1,55 +1,66 @@
 import type { Fixture } from '../../types'
 import TeamCrest from '../TeamCrest'
-import { formatDate } from '../../lib/utils'
+import { TEAM_FULL_NAMES } from '../../lib/constants'
 
 interface Props { fixture: Fixture; teamCodes?: Record<string, number> }
 
+function formatFixtureDate(iso: string | null): string {
+  if (!iso) return 'TBC'
+  const d = new Date(iso)
+  const dd = String(d.getDate()).padStart(2, '0')
+  const mm = String(d.getMonth() + 1).padStart(2, '0')
+  const yyyy = d.getFullYear()
+  return `${dd}/${mm}/${yyyy}`
+}
+
+function formatKickoffTime(iso: string | null): string {
+  if (!iso) return ''
+  const d = new Date(iso)
+  return d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })
+}
+
 export default function FixtureCard({ fixture, teamCodes = {} }: Props) {
   const { home_team_short: home, away_team_short: away, home_score, away_score, finished, kickoff_time } = fixture
-  return (
-    <div className="bg-[#111] border border-[#1e1e1e] rounded-lg p-4 hover:border-[#2a2a2a] transition-colors">
-      {/* Date / status */}
-      <p className="text-[#555] text-[10px] font-medium uppercase tracking-wider mb-3">
-        {finished ? 'Full Time' : formatDate(kickoff_time)}
-      </p>
+  const homeName = TEAM_FULL_NAMES[home] ?? home
+  const awayName = TEAM_FULL_NAMES[away] ?? away
 
-      {/* Teams + score */}
-      <div className="flex flex-col gap-2">
-        {/* Home */}
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2.5">
-            <TeamCrest teamCode={teamCodes[home]} teamShort={home} size={20} />
-            <span className="text-[#e5e5e5] text-sm font-medium">{home}</span>
-          </div>
+  return (
+    <div className="bg-[#1e1e1e] rounded-lg px-4 py-4 flex items-center gap-3 hover:bg-[#252525] transition-colors cursor-pointer">
+      {/* Teams column */}
+      <div className="flex-1 flex flex-col gap-2.5 min-w-0">
+        {/* Home row */}
+        <div className="flex items-center gap-2.5">
+          <TeamCrest teamCode={teamCodes[home]} teamShort={home} size={24} />
+          <span className="text-white text-sm font-medium flex-1 truncate">{homeName}</span>
           {finished && (
-            <span className={`text-sm font-bold ${home_score! > away_score! ? 'text-white' : 'text-[#555]'}`}>
+            <span className={`text-sm font-bold flex-shrink-0 min-w-[14px] text-right ${
+              home_score! > away_score! ? 'text-white' : 'text-[#888]'
+            }`}>
               {home_score}
             </span>
           )}
         </div>
-
-        {/* Away */}
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2.5">
-            <TeamCrest teamCode={teamCodes[away]} teamShort={away} size={20} />
-            <span className="text-[#e5e5e5] text-sm font-medium">{away}</span>
-          </div>
+        {/* Away row */}
+        <div className="flex items-center gap-2.5">
+          <TeamCrest teamCode={teamCodes[away]} teamShort={away} size={24} />
+          <span className="text-white text-sm font-medium flex-1 truncate">{awayName}</span>
           {finished && (
-            <span className={`text-sm font-bold ${away_score! > home_score! ? 'text-white' : 'text-[#555]'}`}>
+            <span className={`text-sm font-bold flex-shrink-0 min-w-[14px] text-right ${
+              away_score! > home_score! ? 'text-white' : 'text-[#888]'
+            }`}>
               {away_score}
             </span>
           )}
         </div>
       </div>
 
-      {/* Upcoming kick-off time pill */}
-      {!finished && kickoff_time && (
-        <div className="mt-3 pt-3 border-t border-[#1e1e1e]">
-          <span className="text-[#555] text-[10px]">
-            {new Date(kickoff_time).toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' })}
-          </span>
+      {/* Date / status column */}
+      <div className="flex-shrink-0 text-right min-w-[110px]">
+        <div className="text-white text-sm font-semibold">{formatFixtureDate(kickoff_time)}</div>
+        <div className="text-[#999] text-sm mt-0.5">
+          {finished ? 'Full time' : formatKickoffTime(kickoff_time)}
         </div>
-      )}
+      </div>
     </div>
   )
 }

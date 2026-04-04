@@ -6,3 +6,29 @@ export const PLAYER_PHOTO_URL = (code: string) => `https://resources.premierleag
 export const TEAM_CREST_URL = (code: number) => `https://resources.premierleague.com/premierleague/badges/t${code}.png`
 export const PLAYER_PHOTO = (code: string) => `https://resources.premierleague.com/premierleague/photos/players/110x140/${code}.png`
 export const TEAM_CREST = (code: number) => `https://resources.premierleague.com/premierleague/badges/t${code}.png`
+
+export const TEAM_FULL_NAMES: Record<string, string> = {
+  ARS: 'Arsenal',
+  AVL: 'Aston Villa',
+  BOU: 'AFC Bournemouth',
+  BRE: 'Brentford',
+  BHA: 'Brighton & Hove Albion',
+  BUR: 'Burnley',
+  CHE: 'Chelsea',
+  CRY: 'Crystal Palace',
+  EVE: 'Everton',
+  FUL: 'Fulham',
+  IPS: 'Ipswich Town',
+  LEE: 'Leeds United',
+  LEI: 'Leicester City',
+  LIV: 'Liverpool FC',
+  MCI: 'Manchester City',
+  MUN: 'Manchester United',
+  NEW: 'Newcastle United',
+  NFO: 'Nottingham Forest',
+  SOU: 'Southampton',
+  SUN: 'Sunderland',
+  TOT: 'Tottenham Hotspur',
+  WHU: 'West Ham United',
+  WOL: 'Wolverhampton Wanderers',
+}

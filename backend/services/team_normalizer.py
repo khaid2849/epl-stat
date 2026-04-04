@@ -14,11 +14,8 @@ TEAM_NAME_MAP: dict[str, str] = {
     "West Ham United": "West Ham",
     "Wolverhampton Wanderers": "Wolves",
     "AFC Bournemouth": "Bournemouth",
-    "Leicester City": "Leicester",
-    "Ipswich Town": "Ipswich",
     "Leeds United": "Leeds",
     "Sunderland AFC": "Sunderland",
-    # OneFootball scraper variants
     "Liverpool FC": "Liverpool",
     "Burnley FC": "Burnley",
     "Brentford FC": "Brentford",
