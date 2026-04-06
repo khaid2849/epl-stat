@@ -202,8 +202,8 @@ export default function Home() {
                         {/* Crest + Name */}
                         <td className="py-4 pr-6">
                           <div className="flex items-center gap-3">
-                            <div className="w-9 h-9 rounded-full bg-white flex items-center justify-center flex-shrink-0">
-                              <TeamCrest teamCode={team.team_code} teamShort={team.team_short} size={26} />
+                            <div className="w-9 h-9 rounded-full bg-white flex items-center justify-center flex-shrink-0 overflow-hidden p-1">
+                              <TeamCrest teamCode={team.team_code} teamShort={team.team_short} size={22} />
                             </div>
                             <span className="text-white font-medium text-sm whitespace-nowrap">
                               {TEAM_FULL_NAMES[team.team_short] ?? team.team_short}

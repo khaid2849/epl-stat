@@ -20,7 +20,8 @@ function formatKickoffTime(iso: string | null): string {
 }
 
 export default function FixtureCard({ fixture, teamCodes = {} }: Props) {
-  const { home_team_short: home, away_team_short: away, home_score, away_score, finished, kickoff_time } = fixture
+  const { home_team_short: home, away_team_short: away, home_score, away_score, finished: finishedRaw, kickoff_time } = fixture
+  const finished = Boolean(finishedRaw)
   const homeName = TEAM_FULL_NAMES[home] ?? home
   const awayName = TEAM_FULL_NAMES[away] ?? away
 
